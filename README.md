@@ -18,8 +18,9 @@
     <li>
 	<a href="#installation">Installation</a>
       <ul>
-        <li>    <a href="#add-sourcing-to-find-command">Add sourcing to find command<a></li>
-        <li>    <a href="#Install-dependency">Install dependency<a></li>
+        <li><a href="#add-sourcing-to-find-command">Add sourcing to find command<a></li>
+        <li><a href="#Install-dependency">Install dependency<a></li>
+        <li><a href="#make-run.sh-file-executable">Make Run.sh file executable<a></li>
       </ul>
     </li>
     <li><a href="#commands-to-run-the-program">Commands to run the program</a></li>
@@ -42,11 +43,10 @@
 ---
 ## Installation:
 
-:fire:  Clone the repository in your **./home** directory.
+:fire:  Clone the repository in suitable directory.
 
 :fire:  Open your **./bashrc** file and add lines given below at the bottom of file.
 
-Replace "path to" with your system location
 
 ---
 **Add sourcing to find command:**
@@ -54,35 +54,52 @@ Replace "path to" with your system location
 :fire:  Copy the following commands in your **./bashrc** file 
 
 ```sh
-export CLEANCODE="~/path to/Data_driven_Kinetics/"
-
-export PATH=$PATH:$CLEANCODE
-
-alias IDprediction="pwd>~/path to/Data_driven_Kinetics/filelocation.txt && Run.sh"
+##Package command Finder:
+export IDCODE="${HOME}/PathToDir/.../Data_driven_Kinetics/"
+export PATH=$PATH:$IDCODE
+alias IDprediction="pwd>${HOME}/PathToDir/.../Data_driven_Kinetics/filelocation.txt && Run.sh"
 ```
+Replace "/PathToDir/.../" with your directory location.
+
 --- 
 **Example:**
 
-If repo is cloned in the folder **./home** directory then configure **.bashrc** using following command:
+If repo is cloned in **./home** directory then configure **.bashrc** using following command:
 
-\#Package command Finder:
+
 ```sh
-export CLEANCODE="~/Data_driven_Kinetics/"
-
-export PATH=$PATH:$CLEANCODE
-
-alias IDprediction="pwd>~/Data_driven_Kinetics/filelocation.txt && Run.sh"
+##Package command Finder:
+export IDCODE="${HOME}/Data_driven_Kinetics/"
+export PATH=$PATH:$IDCODE
+alias IDprediction="pwd>${HOME}/Data_driven_Kinetics/filelocation.txt && Run.sh"
 ```
+---
+**Source the changes:**
 
+:fire:  **(IMPORTANT)** To configure the changes in .bashrc, write following command in terminal.
+
+```sh
+cd
+source .bashrc
+```
 ---
 **Install dependency:**
 
-:fire:  To install all the dependency use INSTALL.sh file rite command given below in the terminal
+:fire:  To install all the dependency use INSTALL.sh file. Write the commands given below in the terminal
 
 ```sh
 chmod +x INSTALL.sh
 
 ./INSTALL.sh
+```
+ 
+ ---
+**Make Run.sh file executable:**
+
+:fire:  To make run file executable, go to **./Data_driven_Kinetics** and write following command.
+
+```sh
+chmod +x Run.sh
 ```
  
 
@@ -103,13 +120,13 @@ Input arguments to 'IDprediction' are specified as below:
 Consider the data file as 'file_name.csv'
 
 
-:fire:  **-a** : ‘**a**nalyze’ the data-set by selecting certain parameters
+:fire:  **-a** : ‘**A**nalyze’ the data-set by selecting certain parameters
 
 ```sh
 IDprediction -a  file_name.csv  
 ```
 
-:fire:  **-b** : find types of '**b**ond’ associated with given fuel
+:fire:  **-b** : Find types of '**b**ond’ associated with given fuel
 ```sh
 IDprediction -b  FuelSMILES
 IDprediction -b CCC
@@ -117,7 +134,7 @@ IDprediction -b CCCCCC
 
 ```
 
-:fire:  **-h** :generates '**h**istogram’ plots of parameters for each fuel individually
+:fire:  **-h** : Generates '**h**istogram’ plots of parameters for each fuel individually
 
 ```sh
 IDprediction -h  file_name.csv 
@@ -163,7 +180,7 @@ IDprediction -f testset.csv
 ```
 
 
-:fire:  **-p**  : **p**lot and obtain of average value of coefficient from coefficient file (If coefficient result obtained many times and there is variation in coefficients)
+:fire:  **-p**  : **P**lot and obtain of average value of coefficient from coefficient file (If coefficient result obtained many times and there is variation in coefficients)
 ```sh
 IDprediction -p  coefficient_3.csv 
 ```
