@@ -1,0 +1,26 @@
+sudo: required
+
+language: shell
+
+before_script:
+  - cd 
+  - git clone https://github.com/Computational-Chemistry-and-Combustion/Data_driven_Kinetics.git
+  - cd
+  - echo "export IDCODE='${HOME}/Data_driven_Kinetics/'" >>~/.bash_profile
+  - echo "export PATH=$PATH:$IDCODE" >>~/.bash_profile
+  - echo "alias IDprediction='pwd>${HOME}/Data_driven_Kinetics/filelocation.txt && Run.sh'" >>~/.bash_profile
+
+  
+install:
+  - cd ~/Data_driven_Kinetics
+  - chmod +x INSTALL.sh
+  - chmod +x Run.sh  
+  - source INSTALL.sh
+  - cd ~/Data_driven_Kinetics/TryYourself/nAlkaneIDT
+  - IDprediction -b CCC
+  - IDprediction -c .1 -t trainset.csv 
+
+after_success:
+  - coveralls
+  - bash <(curl -s https://codecov.io/bash)
+  - codecov
