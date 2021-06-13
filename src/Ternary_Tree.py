@@ -9,7 +9,6 @@ from write_coef import writing_coefficient as WC
 import sys
 import os 
 from search_fileNcreate import search_fileNcreate as SF
-from select_feature import select_feature 
 import copy
 import joblib
 import matplotlib.pyplot as plt
@@ -135,6 +134,16 @@ class Ternary_Tree():
         min_data_criterion = 0
 
         #dividing the data based on error and genearting 3 sets.
+
+        #Adding library 
+        try:
+                '''
+                If  externally features are supplied given more prioritys
+                '''
+                sys.path.append(self.curr_directory)
+                from feature_selection import select_feature as Sel_feat
+        except:
+                from select_feature import select_feature as Sel_feat
 
         data_left,y_left,data_center,y_center,data_right,y_right = self.division_by_error(data)
         # print('data_right: ', data_right.shape)

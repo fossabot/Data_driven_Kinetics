@@ -24,6 +24,9 @@ for i in range(len(dir_split)-1):
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
+import time
+import os
+import time
 from search_fileNcreate import search_fileNcreate as SF
 
 class Data_analysis():
@@ -44,7 +47,7 @@ class Data_analysis():
 
         print('\n\n\nFuels in the dataset:')
         Unique_Fuels = df['Fuel'].unique()
-        for i,item in enumerate(Unique_Fuels):
+        for i in range(len(Unique_Fuels)):
             print(i ,':',str(Unique_Fuels[i]),'\n')
         
         while(1):
@@ -70,7 +73,7 @@ class Data_analysis():
         ###Fixing Up Equivalence ratio 
         while(1):
             print('\n \n Available equivalence ratio for selected fuel are given as below : \n')
-            for i,item in enumerate(equivalence_ratio_available):
+            for i in range(len(equivalence_ratio_available)):
                 print(equivalence_ratio_available[i])
             equivalence_ratio_choice = input('\n \n Fixing the Equivalence ratio value to analyse the data. \n What is your value for Equivalence ratio ? \n')
 
@@ -107,7 +110,7 @@ class Data_analysis():
             print('Maximum Pressure: ', df_equivalence_ratio['P(atm)'].max())
             print('Minimum Pressure: ', df_equivalence_ratio['P(atm)'].min())
             print('Available Pressure Choices are as below : \n')
-            for i,item in enumerate(unique_pressure_choices):
+            for i in range(len(unique_pressure_choices)):
                 print(str(unique_pressure_choices[i]))
             pressure_choice = input('\n \n Fixing the pressure value to analyse the data. \n What is your value for pressure ? \n')
 

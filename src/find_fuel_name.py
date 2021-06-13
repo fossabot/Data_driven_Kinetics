@@ -19,6 +19,11 @@ for i in range(len(dir_split)-1):
 # Importing the libraries
 import numpy as np
 import pandas as pd
+import time
+import copy
+import os
+import time
+import subprocess
 
 def Fuels_name_generation(list_fuel):
         '''
@@ -41,6 +46,6 @@ def Fuels_name_generation(list_fuel):
 
         Fuels_combo_name =''
 
-        for i,item in enumerate(list_fuel):
+        for i in range(len(list_fuel)):
                 Fuels_combo_name = Fuels_combo_name +str('_N_') + str(Smile_name_directory.get(list_fuel[i]))
         return Fuels_combo_name
