@@ -24,9 +24,6 @@ for i in range(len(dir_split)-1):
 import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
-import time
-import os
-import time
 from search_fileNcreate import search_fileNcreate as SF
 
 class Data_analysis():
@@ -47,7 +44,7 @@ class Data_analysis():
 
         print('\n\n\nFuels in the dataset:')
         Unique_Fuels = df['Fuel'].unique()
-        for i in range(len(Unique_Fuels)):
+        for i in enumerate(Unique_Fuels):
             print(i ,':',str(Unique_Fuels[i]),'\n')
         
         while(1):
@@ -73,7 +70,7 @@ class Data_analysis():
         ###Fixing Up Equivalence ratio 
         while(1):
             print('\n \n Available equivalence ratio for selected fuel are given as below : \n')
-            for i in range(len(equivalence_ratio_available)):
+            for i in enumerate(equivalence_ratio_available):
                 print(equivalence_ratio_available[i])
             equivalence_ratio_choice = input('\n \n Fixing the Equivalence ratio value to analyse the data. \n What is your value for Equivalence ratio ? \n')
 
@@ -96,7 +93,7 @@ class Data_analysis():
         ## trying to find out minimum choices of available by rounding off the numbers and 
         ## trying to find out the unique numbers out of that 
         Available_pressure_choices = []
-        for i in range(len(All_Pressure)):
+        for i in enumerate(All_Pressure):
             Available_pressure_choices.append(round(list(All_Pressure)[i]))  #Converted into the list to avoid index problem
         unique_pressure_choices = list(set((Available_pressure_choices))) #Available pressure choices 
         # print('unique pressure_choices: ', unique_pressure_choices)
