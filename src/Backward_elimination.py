@@ -65,12 +65,20 @@ class Backward_elimination:
                 if maxVar > sl:
                     for j in range(1, numVars - i): ###Starting with as don't want to reject Intercept 
                         if (regressor_OLS.pvalues[j].astype(float) == 'nan'): #if p value is nan reject 
-                            X_train = X_train.drop(X_train.columns[j],axis=1)  #pandas array passed
+                            try:
+                                X_train = X_train.drop(X_train.columns[j],axis=1)  #pandas array passed
+                            except AttributeError:
+                                X_train = np.delete(X_train, j, 1)
                             ###if numpy array passes
                             # X_train = np.delete(X_train, j, 1)
                             # X_test = np.delete(X_test, j, 1)
                         if (regressor_OLS.pvalues[j].astype(float) == maxVar): #if p value is more than defined reject 
-                            X_train = X_train.drop(X_train.columns[j],axis=1)  #pandas array passed
+                            # print(X_train)
+                            # print(j)
+                            try:
+                                X_train = X_train.drop(X_train.columns[j],axis=1)  #pandas array passed
+                            except AttributeError:
+                                X_train = np.delete(X_train, j, 1)
                             ###if numpy array passes
                             # X_train = np.delete(X_train, j, 1)
                             # X_test = np.delete(X_test, j, 1)

@@ -25,7 +25,7 @@ while getopts "c:b:a:h:m:t:e:k:f:p:r:s:d:o:l:" arg; do
     c) 
         flag_passed='-c'
         error_criteria="$OPTARG"
-        echo "For Error based clustering, defined criteria :  $error_criteria "
+        echo "For Error based clustering, defined criterion :  $error_criteria "
         echo
         ;;
     b)
@@ -102,7 +102,7 @@ while getopts "c:b:a:h:m:t:e:k:f:p:r:s:d:o:l:" arg; do
     s)
         flag_passed='-s'
         significance_level=$OPTARG
-        echo "Significance level for backward eliminatio : $significance_level"
+        echo "Significance level for backward elimination : $significance_level"
         echo
         ;;
     d)

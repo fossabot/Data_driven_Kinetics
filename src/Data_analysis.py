@@ -70,7 +70,7 @@ class Data_analysis():
         ###Fixing Up Equivalence ratio 
         while(1):
             print('\n \n Available equivalence ratio for selected fuel are given as below : \n')
-            for i in enumerate(equivalence_ratio_available):
+            for i,item in enumerate(equivalence_ratio_available):
                 print(equivalence_ratio_available[i])
             equivalence_ratio_choice = input('\n \n Fixing the Equivalence ratio value to analyse the data. \n What is your value for Equivalence ratio ? \n')
 
@@ -107,7 +107,7 @@ class Data_analysis():
             print('Maximum Pressure: ', df_equivalence_ratio['P(atm)'].max())
             print('Minimum Pressure: ', df_equivalence_ratio['P(atm)'].min())
             print('Available Pressure Choices are as below : \n')
-            for i in enumerate(unique_pressure_choices):
+            for i,item in enumerate(unique_pressure_choices):
                 print(str(unique_pressure_choices[i]))
             pressure_choice = input('\n \n Fixing the pressure value to analyse the data. \n What is your value for pressure ? \n')
 
