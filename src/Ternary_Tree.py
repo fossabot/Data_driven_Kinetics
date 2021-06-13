@@ -137,7 +137,7 @@ class Ternary_Tree():
                 # '''
                 sys.path.append(self.curr_directory)
                 from feature_selection import select_feature as Sel_feat
-        except:
+        except ImportError:
                 from select_feature import select_feature as Sel_feat
 
         #dividing the data based on error and genearting 3 sets.
@@ -287,7 +287,7 @@ class Ternary_Tree():
                     centroid_headers = Sel_feat.column_selection().remove('Constant')
                     try:
                         centroid_out = pd.read_csv(str(self.curr_directory)+'/result/centroids/centroid_'+str(cur_node.center_node.child_label)+'.csv')
-                    except:
+                    except FileNotFoundError:
                         centroid_out = pd.DataFrame([],columns=centroid_headers)
                     centroid_out = centroid_out.append(pd.Series(cur_node.center_node.centroid,index=centroid_headers),ignore_index=True)
                     centroid_out.to_csv(str(self.curr_directory)+'/result/centroids/centroid_'+str(cur_node.center_node.child_label)+'.csv',index=False)
@@ -1207,7 +1207,7 @@ class Ternary_Tree():
         ###For first node
         try:
             f.write('\\node {'+str(round(output_value_list[0],4))+'} %root\n')
-        except: # ExceptioForCoefficient:
+        except TypeError: # ExceptioForCoefficient:
             f.write('\\node {'+str(output_value_list[0])+'} %root\n')
         # except ForFuelsTypes:
 
