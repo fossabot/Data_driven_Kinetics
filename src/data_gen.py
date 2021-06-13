@@ -37,9 +37,9 @@ def data_gen(Data,list_fuel,choice_value,curr_directory):
         '''
         #Adding library 
         try:
-                '''
-                If  externally features are supplied given more prioritys
-                '''
+                # '''
+                # If  externally features are supplied given more prioritys
+                # '''
                 sys.path.append(curr_directory)
                 from feature_selection import select_feature as Sel_feat
         except ImportError:

@@ -210,7 +210,7 @@ class generate_data_points():
         # import random 
         # sampling = data_point_generated
 
-        for i in range(len(sampling)):
+        for i in enumerate(sampling):
             # print(sampling[i])
             generated_data_frame['T(K)'].loc[i] = sampling[i][0]
             generated_data_frame['P(atm)'].loc[i] = sampling[i][1]

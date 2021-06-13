@@ -581,13 +581,13 @@ class Ternary_Tree():
                         copy_Q2.append(copy_Q1[i].right_node)
                         # print('copy_Q1[i].right_node: ', copy_Q1[i].right_node)
 
-            if( len(copy_Q2) is not 0):
+            if( len(copy_Q2) == 0):
                 #Level changed and queue also changed
                 level += 1 #Tree level incremented
                 # print('len(copy_Q2): ', len(copy_Q2))
 
             #Printing and Poping
-            while(len(copy_Q1) is not 0):
+            while(len(copy_Q1) == 0):
                 copy_Q1.popleft()
                                
             ##storing in the copy_Q1
@@ -1335,9 +1335,6 @@ class Ternary_Tree():
 if __name__ == "__main__":
 
     #Adding library 
-    '''
-    If  externally features are supplied given more prioritys
-    '''
     sys.path.append(self.curr_directory)
     from feature_selection import select_feature as Sel_feat
         

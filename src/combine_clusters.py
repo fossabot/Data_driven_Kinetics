@@ -75,7 +75,7 @@ class combine_clusters():
 		and nothing left to see further then first node will be saved and purged 
 		'''
 		# print('nodes: ',len(nodes))
-		for i in range(len(nodes)):
+		for i in enumerate(nodes):
 			#dumping centroid
 			filename =  str(self.curr_directory)+'/object_file/final_centroid/centroid_'+str(cluster_label[i])+'.sav'
 			centroid = self.ref_point.calculate_centroid(nodes[i].data)

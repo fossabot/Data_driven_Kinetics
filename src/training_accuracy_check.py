@@ -63,9 +63,9 @@ class training_accuracy_check():
                 '''
                 warnings.warn('Processing only with straight chain Alkanes')
                 try:
-                        '''
-                        If  externally features are supplied given more priorities
-                        '''
+                        # '''
+                        # If  externally features are supplied given more priorities
+                        # '''
                         sys.path.append(self.curr_directory)
                         from feature_selection import select_feature as Sel_feat
                         print('feature selection passed')
@@ -167,7 +167,7 @@ class training_accuracy_check():
                         f.write('\n Result for cluster-'+str(cluster_label[i])+':\n')
                         print('\n Index','          ','Y_actual','            ','Y_Predicted','                ','Relative Error')
                         f.write('\n Index'+'          '+'Y_actual'+'            '+'Y_Predicted'+'                '+'Relative Error')
-                        for k in range (len(y_pred)):
+                        for k in enumerate(y_pred):
                                 # print(fuel_name[k],'            ',np.log(y_given[k]),'  ',y_train[k],'      ',y_pred[k],'    ',np.abs(y_train[k]-y_pred[k])/y_train[k],'\n')
                                 print(k ,': ', y_train[k],'      ',y_pred[k],'    ',np.abs(y_train[k]-y_pred[k])/np.abs(y_train[k]),'\n')
                                 f.write('\n'+str(k) +': '+ str(y_train[k])+'      '+str(y_pred[k])+'    '+str(np.abs(y_train[k]-y_pred[k])/np.abs(y_train[k]))+'\n')                        
@@ -197,9 +197,9 @@ class training_accuracy_check():
                         # ERROR PLOTTING  #
                         ###################
 
-                        '''
-                        plot of training accuracy result 
-                        '''
+                        # '''
+                        # plot of training accuracy result 
+                        # '''
                         plt.close()
                         rel_error_gt_15 = ID_comparison[ID_comparison['Relative Error'] <= 0.15].shape[0]
                         rel_error_btn_15_20 = ID_comparison[(ID_comparison['Relative Error'] > 0.15) & (ID_comparison['Relative Error'] <= 0.20)].shape[0]
@@ -227,9 +227,9 @@ class training_accuracy_check():
                         #Drawing line at 45 
                         x = np.arange(-15,15,0.5)
 
-                        '''
-                        plot of training accuracy result 
-                        '''
+                        # '''
+                        # plot of training accuracy result 
+                        # '''
                         SF.check_directory(str(self.curr_directory)+'/training_accuracy_result/prediction_comparison_plots/') #checking directory
                         plt.clf()
                         plt.plot(x,x,linestyle='--',color='black')
@@ -249,13 +249,13 @@ class training_accuracy_check():
         
                 #Overall RMSE
                 f = open(str(self.curr_directory)+"/training_accuracy_result/console_output/output_result.txt", "a")
-                '''
-                overall rmse^2 * n = n1 * rmse1^2 + n2 * rmse2^2 +...s
-                '''
+                # '''
+                # overall rmse^2 * n = n1 * rmse1^2 + n2 * rmse2^2 +...s
+                # '''
                 f.write('rmse:'+str(rmse_cluster))
                 f.write('data points in test cluster:'+str(testdata_points_in_cluster))
                 square_rmse = 0
-                for i in range(len(rmse_cluster)):
+                for i in enumerate(rmse_cluster):
                         if(testdata_points_in_cluster[i] > 0): #if no data points then to avoid nan answer
                                 square_rmse += (rmse_cluster[i]**2) * testdata_points_in_cluster[i]
                 overall_rmse = math.sqrt(square_rmse / sum(testdata_points_in_cluster))
@@ -269,9 +269,9 @@ class training_accuracy_check():
                 ### whole comparision ###
                 #########################
 
-                '''
-                plot of train set result 
-                '''
+                # '''
+                # plot of train set result 
+                # '''
                 rel_error_lt_10 = final_comparision[final_comparision['Relative Error'] <= 0.10].shape[0]
                 rel_error_btn_10_20 = final_comparision[(final_comparision['Relative Error'] > 0.10) & (final_comparision['Relative Error'] <= 0.20)].shape[0]
                 rel_error_btn_20_30 = final_comparision[(final_comparision['Relative Error'] > 0.20) & (final_comparision['Relative Error'] <= 0.30)].shape[0]
@@ -394,7 +394,7 @@ class training_accuracy_check():
                         #distance of all data point from ref data points for one cluster
                         for j in range(len(data_passed)): #for all data points
                                 distance_from_ref_points =[]
-                                for k in range(len(ref_data_points)):
+                                for k in enumerate(ref_data_points):
                                         distance_from_ref_points.append(self.euclidian_dist(data_passed.loc[j,:],ref_data_points[k]))#calling function
                                 #minimum from above all
                                 min_of_above_all = np.min(distance_from_ref_points)
@@ -414,9 +414,9 @@ class training_accuracy_check():
         def euclidian_dist(self,arr_1,arr_2):
                 arr_1 = np.array(arr_1)
                 arr_2 = np.array(arr_2)
-                '''
-                calculating distance by passed row of matrix and centroid 
-                '''
+                # '''
+                # calculating distance by passed row of matrix and centroid 
+                # '''
                 distance = np.linalg.norm(arr_1-arr_2)
                 return distance
 

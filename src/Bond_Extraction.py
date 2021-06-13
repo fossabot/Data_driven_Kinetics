@@ -207,7 +207,7 @@ class Bond_Extraction:
                 carbon_atom_posi = list(connection_data.iloc[:, 0])
                 #Dictionary 
                 carbon_posi_type_dict = dict(zip(carbon_atom_posi,carbon_type_list))
-                '''{1: 'P', 2: 'T', 3: 'P', 4: 'S', 5: 'T', 7: 'P', 8: 'P'}'''
+                # '''{1: 'P', 2: 'T', 3: 'P', 4: 'S', 5: 'T', 7: 'P', 8: 'P'}'''
 
                 #Array of Smile atom number by it spostion or length (CCCC)=(1234)
                 Smile_number = list(range(1,Smiles_length+1))
@@ -223,7 +223,7 @@ class Bond_Extraction:
 
                 #Smile Based Dictionary ...Atom postion and its type 
                 Smile_dict= dict(zip(Smile_number,carbon_type))
-                '''{1: 'P', 2: 'T', 3: 'P', 4: 'S', 5: 'T', 6: 'NaN', 7: 'P', 8: 'P'}'''
+                # '''{1: 'P', 2: 'T', 3: 'P', 4: 'S', 5: 'T', 6: 'NaN', 7: 'P', 8: 'P'}'''
                 Smiles_carbon_type = list(Smile_dict.values())  #Carbon type related to smile atom position 
 
                 #Carbon Types
