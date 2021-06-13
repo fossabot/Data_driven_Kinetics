@@ -136,6 +136,3 @@ class find_fuel_type():
             another_data = another_data.append(data_to_append)
         
         return another_data
-
-
-

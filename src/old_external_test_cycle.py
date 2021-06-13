@@ -10,10 +10,7 @@
 
 import numpy as np
 import pandas as pd 
-import time 
-import random
 import joblib
-from sklearn.model_selection import train_test_split
  ###Heat Map###
 # import seaborn as sns; sns.set()
 import matplotlib.pyplot as plt
@@ -21,7 +18,6 @@ import copy
 # from data_gen import data_gen
 import warnings
 # from find_fuel_type import find_fuel_type
-from select_feature import select_feature
 import subprocess
 from search_fileNcreate import search_fileNcreate  as SF
 ##Directory to export the file of combination of different files

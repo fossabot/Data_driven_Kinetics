@@ -5,10 +5,7 @@
 
 import numpy as np
 import pandas as pd 
-import time 
-import random
 import joblib
-from sklearn.model_selection import train_test_split
  ###Heat Map###
 # import seaborn as sns; sns.set()
 import matplotlib.pyplot as plt
@@ -16,7 +13,6 @@ import copy
 # from data_gen import data_gen
 import warnings
 # from find_fuel_type import find_fuel_type
-from select_feature import select_feature
 import subprocess
 from search_fileNcreate import search_fileNcreate  as SF
 ##Directory to export the file of combination of different files
@@ -53,8 +49,7 @@ class training_accuracy_check():
                 if(len(y_train) != 0): #if list is empty
                         error = np.max(np.abs(y_train - y_train_pred)/np.abs(y_train))
                         return error
-                else:
-                        return 0 
+                return 0 
 
 
         def training_accuracy(self,data):
@@ -69,8 +64,8 @@ class training_accuracy_check():
                         sys.path.append(self.curr_directory)
                         from feature_selection import select_feature as Sel_feat
                         print('feature selection passed')
-                        pass
-                except:
+                        
+                except ImportError:
                         from select_feature import select_feature as Sel_feat
                         print('feature selection not passed')
                 
@@ -309,7 +304,7 @@ class training_accuracy_check():
                 header = ['10','20','30','40','50','60','70','80','90','100','>100']
                 try:
                         error_freq = pd.read_csv(str(self.curr_directory)+'/training_accuracy_result/error_frequency/error_frequency.csv')
-                except:
+                except FileNotFoundError:
                         error_freq = pd.DataFrame([],columns=header)
                 new_data = pd.Series(y,index=header) #new error freq row
                 error_freq = error_freq.append(new_data,ignore_index=True)    #appending

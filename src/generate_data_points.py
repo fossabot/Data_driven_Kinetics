@@ -228,11 +228,3 @@ class generate_data_points():
         # plt.show()
 
         return generated_data_frame
-
-
-
-
-
-
-
-

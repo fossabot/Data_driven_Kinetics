@@ -72,9 +72,3 @@ elif(flag != '-b' and flag != '-t'):
     Flag.switch_func(flag,dataset_location=dataset_location,curr_directory=curr_directory) 
 if(flag == '-b'):
     Flag.switch_func(flag,curr_directory=curr_directory,smile=smile) 
-
-
-
-
-
-
