@@ -3,16 +3,11 @@ sudo: required
 language: shell
 
 install:
-  - cd 
-  - git clone https://github.com/Computational-Chemistry-and-Combustion/Data_driven_Kinetics.git
-  - cd
-  - echo "export IDCODE='${HOME}/Data_driven_Kinetics/'" >>~/.bash_profile
-  - echo "export PATH=$PATH:$IDCODE" >>~/.bash_profile
-  - echo "alias IDprediction='pwd>${HOME}/Data_driven_Kinetics/filelocation.txt && Run.sh'" >>~/.bash_profile
+  - export IDCODE="$PWD"
+  - export PATH=$PATH:$IDCODE
+  - alias IDprediction="pwd>${IDCODE}/filelocation.txt && Run.sh"
 
-  
 script:
-  - cd ~/Data_driven_Kinetics
   - chmod +x INSTALL.sh
   - chmod +x Run.sh  
   - source INSTALL.sh
