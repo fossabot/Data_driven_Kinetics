@@ -16,7 +16,6 @@ import copy
 # from data_gen import data_gen
 import warnings
 # from find_fuel_type import find_fuel_type
-from select_feature import select_feature
 import subprocess
 from search_fileNcreate import search_fileNcreate  as SF
 ##Directory to export the file of combination of different files

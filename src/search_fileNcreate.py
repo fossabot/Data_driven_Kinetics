@@ -66,6 +66,5 @@ class search_fileNcreate():
         return dir_name
         
 if __name__ == "__main__":
-    print(os.system('pwd'))
     search_fileNcreate.check_file_existence("result/bond_detail.csv")
     search_fileNcreate.check_directory_N_AddNum("result/app/dir")

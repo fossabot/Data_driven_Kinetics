@@ -318,11 +318,11 @@ class training_accuracy_check():
                 #counting number files in the centroid directory which is total number of centroids
                 cmd_num_of_files = "find "+directory_path+" -type f | wc -l"
                 #check_output return output of bash 
-                num_of_cluster = int(subprocess.check_output(cmd_num_of_files,shell=True, universal_newlines=False))  # returns the exit code in unix
+                num_of_cluster = int(subprocess.check_output(cmd_num_of_files,shell=False, universal_newlines=False))  # returns the exit code in unix
 
                 #finding name of files in the centroid directory
                 cmd_files_name = "ls "+directory_path
-                centroid_file_names = str(subprocess.check_output(cmd_files_name,shell=True, universal_newlines=False),"utf-8").split('\n') #converting output into string and then splitting 
+                centroid_file_names = str(subprocess.check_output(cmd_files_name,shell=False, universal_newlines=False),"utf-8").split('\n') #converting output into string and then splitting 
                 file_names = [] #storing  file names
                 file_name_label = []
                 for i in range(len(centroid_file_names)-1):
