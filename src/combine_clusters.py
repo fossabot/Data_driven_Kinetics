@@ -62,7 +62,7 @@ class combine_clusters():
 		file_dict = dict(zip(file_name_label,file_names))
 		file_name_label=sorted(file_dict.keys())
 		file_name_sorted = []
-		for i in enumerate(file_name_label):
+		for i,item in enumerate(file_name_label):
 			file_name_sorted.append(file_dict.get(file_name_label[i]))
 
 		# file_names = file_names.sort()
@@ -75,7 +75,7 @@ class combine_clusters():
 		and nothing left to see further then first node will be saved and purged 
 		'''
 		# print('nodes: ',len(nodes))
-		for i in enumerate(nodes):
+		for i,item in enumerate(nodes):
 			#dumping centroid
 			filename =  str(self.curr_directory)+'/object_file/final_centroid/centroid_'+str(cluster_label[i])+'.sav'
 			centroid = self.ref_point.calculate_centroid(nodes[i].data)
@@ -144,7 +144,7 @@ class combine_clusters():
 		data_size = []
 		cluster_label = []
 		nodes = [] #for sorted nodes
-		for i in enumerate(load_nodes):
+		for i,item in enumerate(load_nodes):
 			data_size.append(load_nodes[i].data_size)
 		sorted_by_data_size = sorted(data_size,reverse=True)
 		print('sorted_by_data_size: ', sorted_by_data_size)
@@ -176,7 +176,7 @@ class combine_clusters():
 		reg_error = []
 		cluster_label = []
 		nodes = [] #for sorted nodes
-		for i in enumerate(load_nodes):
+		for i,item in enumerate(load_nodes):
 			reg_error.append(load_nodes[i].max_relerr_train)
 		sorted_by_reg_error = sorted(reg_error,reverse=False)
 		print('reg_error: ', reg_error)
@@ -215,7 +215,7 @@ class combine_clusters():
 		return data_in_range,data_outside_range
 
 	def check_data_shape(self,nodes):
-		for i in enumerate(nodes):
+		for i,item in enumerate(nodes):
 			print('\nshape_ :', nodes[i].data_size)
 		
 
@@ -404,7 +404,7 @@ class combine_clusters():
 					break
 
 				j += 1
-				for k in enumerate(nodes):
+				for k,item in enumerate(nodes):
 					print(nodes[k].data.shape)
 
 				print('len(nodes): ', len(nodes))
@@ -429,7 +429,7 @@ class combine_clusters():
 		dist_val =[]
 		
 		data = pd.DataFrame([])
-		for i in enumerate(nodes):
+		for i,item in enumerate(nodes):
 			i_centroid = nodes[i].centroid
 			for j in range(i,len(nodes)):
 				j_centroid = nodes[j].centroid
@@ -468,7 +468,7 @@ class combine_clusters():
 		load_nodes = []
 		load_regressor = [] #objects for prediction
 		#loading and storing node
-		for i in enumerate(file_name_label):
+		for i,item in enumerate(file_name_label):
 			regre = joblib.load(str(self.curr_directory)+'/object_file/tree/regressor/regressor_'+str(file_name_label[i])+'.sav')
 			node = joblib.load(str(cluster_path)+str(file_names[i]))
 			load_nodes.append(node)

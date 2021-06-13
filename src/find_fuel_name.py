@@ -41,6 +41,6 @@ def Fuels_name_generation(list_fuel):
 
         Fuels_combo_name =''
 
-        for i in enumerate(list_fuel):
+        for i,item in enumerate(list_fuel):
                 Fuels_combo_name = Fuels_combo_name +str('_N_') + str(Smile_name_directory.get(list_fuel[i]))
         return Fuels_combo_name

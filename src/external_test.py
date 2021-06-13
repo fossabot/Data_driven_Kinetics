@@ -163,7 +163,7 @@ class external_test():
                         f.write('\n Result for cluster-'+str(cluster_label[i])+':\n')
                         print('\n Index','          ','Y_actual','            ','Y_Predicted','                ','Relative Error')
                         f.write('\n Index'+'          '+'Y_actual'+'            '+'Y_Predicted'+'                '+'Relative Error')
-                        for k in enumerate(y_pred):
+                        for k,item in enumerate(y_pred):
                                 # print(fuel_name[k],'            ',np.log(y_given[k]),'  ',y_test_external[k],'      ',y_pred[k],'    ',np.abs(y_test_external[k]-y_pred[k])/y_test_external[k],'\n')
                                 print(k ,': ', y_test_external[k],'      ',y_pred[k],'    ',np.abs(y_test_external[k]-y_pred[k])/np.abs(y_test_external[k]),'\n')
                                 f.write('\n'+str(k) +': '+ str(y_test_external[k])+'      '+str(y_pred[k])+'    '+str(np.abs(y_test_external[k]-y_pred[k])/np.abs(y_test_external[k]))+'\n')                        
@@ -258,7 +258,7 @@ class external_test():
                 f.write('rmse:'+str(rmse_cluster))
                 f.write('data points in test cluster:'+str(testdata_points_in_cluster))
                 square_rmse = 0
-                for i in enumerate(rmse_cluster):
+                for i,item in enumerate(rmse_cluster):
                         if(testdata_points_in_cluster[i] > 0): #if no data points then to avoid nan answer
                                 square_rmse += (rmse_cluster[i]**2) * testdata_points_in_cluster[i]
                 overall_rmse = math.sqrt(square_rmse / sum(testdata_points_in_cluster))
@@ -385,7 +385,7 @@ class external_test():
                         #distance of all data point from ref data points for one cluster
                         for j in range(len(data_passed)): #for all data points
                                 distance_from_ref_points =[]
-                                for k in enumerate(ref_data_points):
+                                for k,item in enumerate(ref_data_points):
                                         distance_from_ref_points.append(self.euclidian_dist(data_passed.loc[j,:],ref_data_points[k]))#calling function
                                 #minimum from above all
                                 min_of_above_all = np.min(distance_from_ref_points)

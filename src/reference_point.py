@@ -104,7 +104,7 @@ class reference_point():
 			print('Finding extreme points')
 			time.sleep(5)
 			other_ref_points = self.find_extreme_point(data_passed,Point_max_dist_from_centroid,centroid)
-			for i in enumerate(other_ref_points):
+			for i,item in enumerate(other_ref_points):
 				filename_max_dist_centroid =  str(self.curr_directory)+'/object_file/'+str(dir_name)+'/other_refPoi_'+str(i)+'_'+str(child_label)+'.sav'
 				joblib.dump(other_ref_points[i],filename_max_dist_centroid )
 		else:
@@ -140,7 +140,7 @@ class reference_point():
 						for j in range (data.shape[0]): #for all the data points 
 							dist_sum = 0
 							data = data.reset_index(drop=True)
-							for k in enumerate(ref_points): #distance from all the points
+							for k,item in enumerate(ref_points): #distance from all the points
 								dist_sum += self.euclidian_dist(ref_points[k],data.loc[j,:])
 							#for data point-j distance is measured from all the distance and ref_points
 							measured_dist_from_all_ref_point.append(dist_sum)
@@ -167,7 +167,7 @@ class reference_point():
 					# print('ref_points: ', ref_points)
 					dist_sum = 0
 					data = data.reset_index(drop=True)
-					for k in enumerate(ref_points): #distance from all the points
+					for k,item in enumerate(ref_points): #distance from all the points
 						# print('data.loc[j]: ', data.loc[j])
 						# print('ref_points[k]: ', ref_points[k])
 						dist_sum += self.euclidian_dist(ref_points[k],data.loc[j])

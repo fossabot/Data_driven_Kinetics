@@ -38,7 +38,7 @@ class generate_data_points():
         unique_fuel_count = len(unique_fuels)
 
         #fuel_list and number of data points 
-        for i in enumerate(unique_fuels):
+        for i,item in enumerate(unique_fuels):
             unique_fuels_data_count.append(list(data['Fuel']).count(unique_fuels[i]))
 
 
@@ -49,7 +49,7 @@ class generate_data_points():
 
         unique_fuel_zip = zip(unique_fuels,unique_fuels_data_count)
         unique_fuels_dict = dict(unique_fuel_zip)
-        for i in enumerate(unique_fuels):
+        for i,item in enumerate(unique_fuels):
             print(i,':  ',unique_fuels[i], ':' , unique_fuels_data_count[i])
 
         # '''
@@ -118,7 +118,7 @@ class generate_data_points():
         extended_dataframe = data[0:0]
 
 
-        for i in enumerate(unique_fuels):
+        for i,item in enumerate(unique_fuels):
             selected_fuel = unique_fuels[i]
             # print('selected_fuel: ', selected_fuel)
 
@@ -210,7 +210,7 @@ class generate_data_points():
         # import random 
         # sampling = data_point_generated
 
-        for i in enumerate(sampling):
+        for i,item in enumerate(sampling):
             # print(sampling[i])
             generated_data_frame['T(K)'].loc[i] = sampling[i][0]
             generated_data_frame['P(atm)'].loc[i] = sampling[i][1]

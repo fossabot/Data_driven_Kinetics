@@ -40,7 +40,7 @@ class coefficient_plotting():
         headers = list(df.columns)
 
         #Headers removed /
-        for i in enumerate(headers):
+        for i,item in enumerate(headers):
             headers[i] = headers[i].replace('/','_')
 
         weights_mean = []
@@ -102,7 +102,7 @@ class coefficient_plotting():
         headers = list(df.columns)
 
         #Headers removed /
-        for i in enumerate(headers):
+        for i,item in enumerate(headers):
             headers[i] = headers[i].replace('/','_')
 
         weights_mean = []
@@ -196,7 +196,7 @@ class coefficient_plotting():
         headers = list(df.columns)
 
         #Headers removed /
-        for i in enumerate(headers):
+        for i,item in enumerate(headers):
             headers[i] = headers[i].replace('/','_')
 
         weights_max = []

@@ -493,7 +493,7 @@ class Ternary_Tree():
             '''
             data_dictionary_values = data_dictionary.values()
             data_dictionary_keys = list(data_dictionary.keys())
-            for k in enumerate(data_dictionary_keys):
+            for k,item in enumerate(data_dictionary_keys):
                 if(data_dictionary_keys[k] is not None):    
                     data_dictionary_keys[k] = data_dictionary_keys[k].replace('(%)','')
                     data_dictionary_keys[k] = data_dictionary_keys[k].replace('_','')
@@ -569,7 +569,7 @@ class Ternary_Tree():
 
 
             ##storing in the copy_Q2
-            for i in enumerate(copy_Q1):
+            for i,item in enumerate(copy_Q1):
                 if(copy_Q1[i] is not None):
                     if(copy_Q1[i].left_node is not None):
                         copy_Q2.append(copy_Q1[i].left_node)
@@ -591,7 +591,7 @@ class Ternary_Tree():
                 copy_Q1.popleft()
                                
             ##storing in the copy_Q1
-            for i in enumerate(copy_Q2):
+            for i,item in enumerate(copy_Q2):
                 if(copy_Q2[i] is not None):
                     if(copy_Q2[i].left_node is not None):
                         copy_Q1.append(copy_Q2[i].left_node)
@@ -704,7 +704,7 @@ class Ternary_Tree():
                     break
 
             ##storing in the Q2
-            for i in enumerate(Q1):
+            for i,item in enumerate(Q1):
                 if(Q1[i] is not None):
                     # print(str(Q1[i].r2))
                     Q2.append(Q1[i].left_node)
@@ -762,7 +762,7 @@ class Ternary_Tree():
 
             ##storing in the Q1
             counter = 0
-            for i in enumerate(Q2):
+            for i,item in enumerate(Q2):
                 if(Q2[i] is not None):
                     Q1.append(Q2[i].left_node)
                     # print('Q2[i].left_node: ', Q2[i].left_node)

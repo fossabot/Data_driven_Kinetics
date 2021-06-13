@@ -48,7 +48,7 @@ def data_gen(Data,list_fuel,choice_value,curr_directory):
 
         # Importing the dataset
         dataset = pd.DataFrame([])
-        for i in enumerate(list_fuel):
+        for i,item in enumerate(list_fuel):
                 # print('Data.Fuel == list_fuel[i]: ', Data.Fuel == list_fuel[i])
                 dataset = dataset.append(Data[Data.Fuel == list_fuel[i]]) #filetring dataset accordinh list fuels
         dataset = dataset.reset_index(drop=True)        
@@ -82,6 +82,6 @@ def data_gen(Data,list_fuel,choice_value,curr_directory):
 
         # Merging Two dataset, It will merge automatically by its common
 
-        for i in enumerate(columns):
+        for i,item in enumerate(columns):
                 dataset[columns[i]] = Extracted_bond_data[columns[i]]
         return dataset

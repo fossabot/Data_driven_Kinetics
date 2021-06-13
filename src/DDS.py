@@ -24,7 +24,7 @@ sys.path.append(dir_path+str('/clustering_methods'))
 dir_split = dir_path.split('/')
 # print('dir_split: ', dir_split)
 Main_folder_dir = ''
-for i in enumerate(dir_split):
+for i in range(len(dir_split)-1):
     Main_folder_dir += dir_split[i] + str('/')
 
 

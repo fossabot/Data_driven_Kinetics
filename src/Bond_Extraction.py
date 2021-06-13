@@ -35,7 +35,7 @@ class Bond_Extraction:
         #columns
         columns = Sel_feat.bond_extraction_cols()
         Bond_detail_dataframe = pd.DataFrame(columns=columns)
-        for i in enumerate(Unique_fuel_smiles):
+        for i,item in enumerate(Unique_fuel_smiles):
             print('Unique fuel smiles : ', Unique_fuel_smiles[i])
             # Molfile object from Smiles
             if (Unique_fuel_smiles[i] == 'C'):
@@ -75,7 +75,7 @@ class Bond_Extraction:
                 Smiles_length = 0  # Initialize
                 Smiles_char = []  # Smiles Character List
                 # checking character is alphabat or not for processing of file
-                for j in range(len(Unique_fuel_smiles[i])):
+                for j,item in enumerate(Unique_fuel_smiles[i]):
                     if (Unique_fuel_smiles[i][j].isalpha()):
                         Smiles_length += 1
                         Smiles_char.append(Unique_fuel_smiles[i][j])
